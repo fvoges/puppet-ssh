@@ -12,7 +12,7 @@
 #
 class ssh (
   Optional[String]                                  $package_adminfile,
-  Variant[Stdlib::Unixpath,Array[Stdlib::Unixpath]] $package_name,
+  Variant[String,Array[String]]                     $package_name,
   String                                            $package_ensure,
   Optional[String]                                  $package_source,
   Boolean                                           $service_enable,
@@ -25,10 +25,10 @@ class ssh (
   String                                            $ssh_config_owner,
   Variant[Stdlib::Unixpath,Array[Stdlib::Unixpath]] $ssh_config_path,
   String                                            $sshd_config_group,
-  Variant[Stdlib::Unixpath,Array[Stdlib::Unixpath]] $sshd_config_hostkey,
   Ssh::File_mode                                    $sshd_config_mode,
   String                                            $sshd_config_owner,
   Variant[Stdlib::Unixpath,Array[Stdlib::Unixpath]] $sshd_config_path,
+  Variant[Stdlib::Unixpath,Array[Stdlib::Unixpath]] $sshd_hostkey,
 ) {
 
   contain ::ssh::install

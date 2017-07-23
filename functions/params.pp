@@ -51,7 +51,7 @@ function ssh::params (
       # Ubuntu 16.04
       if $::facts['os']['release']['full'] == '16.04' {
         $release = {
-          'ssh::sshd_config_hostkey'         => [
+          'ssh::sshd_hostkey'         => [
             '/etc/ssh/ssh_host_rsa_key',
             '/etc/ssh/ssh_host_dsa_key',
             '/etc/ssh/ssh_host_ecdsa_key',

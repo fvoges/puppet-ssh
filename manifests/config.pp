@@ -15,7 +15,7 @@ class ssh::config {
   file  { 'sshd_config' :
     ensure => file,
     path   => $::ssh::sshd_config_path,
-    mode   => $::ssh::sshd_config_mode_real,
+    mode   => $::ssh::sshd_config_mode,
     owner  => $::ssh::sshd_config_owner,
     group  => $::ssh::sshd_config_group,
   }
