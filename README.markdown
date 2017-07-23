@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fvoges/puppet-ssh.svg?branch=master)](https://travis-ci.org/fvoges/puppet-ssh)
+
 #### Table of Contents
 
 1. [Overview](#overview)
