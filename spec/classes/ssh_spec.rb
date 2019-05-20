@@ -8,7 +8,7 @@ describe 'ssh' do
           facts
         end
 
-        context "ssh class without any parameters" do
+        context 'ssh class without any parameters' do
           it { is_expected.to compile.with_all_deps }
 
           it { is_expected.to contain_class('ssh::install').that_comes_before('Class[ssh::config]') }
@@ -68,7 +68,7 @@ describe 'ssh' do
         }
       end
 
-      it { expect { is_expected.to contain_package('ssh') }.to raise_error(Puppet::Error, /Detected osfamily is <windows/) }
+      it { expect { is_expected.to contain_package('ssh') }.to raise_error(Puppet::Error, %r{Detected osfamily is <windows}) }
     end
   end
 end
