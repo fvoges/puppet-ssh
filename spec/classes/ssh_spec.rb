@@ -23,6 +23,9 @@ describe 'ssh' do
           when 'Suse'
             it { is_expected.to contain_service('sshd') }
             it { is_expected.to contain_package('openssh').with_ensure('present') }
+          when 'Gentoo'
+            it { is_expected.to contain_service('sshd') }
+            it { is_expected.to contain_package('openssh').with_ensure('present') }
           when 'Debian'
             it { is_expected.to contain_service('ssh') }
             it { is_expected.to contain_package('openssh-server').with_ensure('present') }

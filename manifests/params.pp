@@ -13,6 +13,10 @@ class ssh::params {
       $package_name = 'ssh'
       $service_name = 'ssh'
     }
+    'Gentoo': {
+      $package_name = 'ssh'
+      $service_name = 'openssh'
+    }
     default: {
       fail("${::operatingsystem} not supported")
     }
