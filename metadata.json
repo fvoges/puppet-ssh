@@ -75,6 +75,9 @@
         "20.04",
         "22.04"
       ]
+    },
+    {
+      "operatingsystem": "Gentoo"
     }
   ],
   "requirements": [
