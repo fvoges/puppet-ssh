@@ -15,43 +15,39 @@ describe 'ssh' do
           it { is_expected.to contain_class('ssh::config') }
           it { is_expected.to contain_class('ssh::service').that_subscribes_to('Class[ssh::config]') }
 
-          case facts['osfamily']
+          case facts[:osfamily]
           when 'RedHat'
-            it { is_expected.to contain_service('sshd') }
-            it { is_expected.to contain_package('openssh-server').with_ensure('present') }
-            it { is_expected.to contain_package('openssh-clients').with_ensure('present') }
-          when 'Suse'
-            it { is_expected.to contain_service('sshd') }
-            it { is_expected.to contain_package('openssh').with_ensure('present') }
-          when 'Gentoo'
-            it { is_expected.to contain_service('sshd') }
-            it { is_expected.to contain_package('openssh').with_ensure('present') }
+            pkg_names = ['openssh-server', 'openssh-clients']
+            svc_name = 'sshd'
           when 'Debian'
-            it { is_expected.to contain_service('ssh') }
-            it { is_expected.to contain_package('openssh-server').with_ensure('present') }
-            it { is_expected.to contain_package('openssh-client').with_ensure('present') }
+            pkg_names = ['openssh-server', 'openssh-client']
+            svc_name = 'ssh'
+          when 'Suse'
+            pkg_names = ['openssh']
+            svc_name = 'sshd'
+          when 'Gentoo'
+            pkg_names = ['openssh']
+            svc_name = 'sshd'
           when 'Solaris'
-            case facts['kernelrelease']
+            case facts[:kernelrelease]
             when '5.11'
-              it { is_expected.to contain_service('ssh') }
-              it { is_expected.to contain_package('network/ssh').with_ensure('present') }
-              it { is_expected.to contain_package('network/ssh-key').with_ensure('present') }
-              it { is_expected.to contain_package('service/network/ssh').with_ensure('present') }
+              pkg_names = ['network/ssh', 'network/ssh/ssh-key', 'service/network/ssh']
+              svc_name = 'ssh'
             when '5.10'
-              it { is_expected.to contain_service('ssh') }
-              it { is_expected.to contain_package('SUNWsshcu').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshdr').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshdu').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshr').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshu').with_ensure('present') }
+              pkg_names = ['SUNWsshcu', 'SUNWsshdr', 'SUNWsshdu', 'SUNWsshr', 'SUNWsshu']
+              svc_name = 'ssh'
             when '5.9'
-              it { is_expected.to contain_service('sshd') }
-              it { is_expected.to contain_package('SUNWsshcu').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshdr').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshdu').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshr').with_ensure('present') }
-              it { is_expected.to contain_package('SUNWsshu').with_ensure('present') }
+              pkg_names = ['SUNWsshcu', 'SUNWsshdr', 'SUNWsshdu', 'SUNWsshr', 'SUNWsshu']
+              svc_name = 'sshd'
             end
+          else
+            pkg_names = ['fail']
+            svc_name = 'fail'
+          end
+
+          it { is_expected.to contain_service(svc_name) }
+          pkg_names.each do |n|
+            it { is_expected.to contain_package(n).with_ensure('present') }
           end
         end
       end
