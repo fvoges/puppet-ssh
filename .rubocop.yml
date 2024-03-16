@@ -353,6 +353,8 @@ RSpec/ReceiveCounts:
   Enabled: false
 RSpec/ReceiveNever:
   Enabled: false
+RSpec/RepeatedExample:
+  Enabled: false
 RSpec/RepeatedExampleGroupBody:
   Enabled: false
 RSpec/RepeatedExampleGroupDescription:
