@@ -62,8 +62,8 @@ describe 'ssh' do
     describe 'ssh class without any parameters on Windows' do
       let(:facts) do
         {
-          :os => {
-            :family => 'windows',
+          os: {
+            family: 'windows',
           },
         }
       end

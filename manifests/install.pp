@@ -1,12 +1,11 @@
-# == Class ssh::install
+# @api private
 #
-# This class is called from ssh for install.
+# Ensure that the necessary packages are installed
 #
 class ssh::install {
-
-  package { $::ssh::package_name:
+  package { $ssh::package_name:
     ensure    => present,
-    source    => $::ssh::package_source,
-    adminfile => $::ssh::package_adminfile,
+    source    => $ssh::package_source,
+    adminfile => $ssh::package_adminfile,
   }
 }

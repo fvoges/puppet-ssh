@@ -1,8 +1,8 @@
+# @api private
 function ssh::params (
   Hash                  $options, # We ignore both of these arguments, but
   Puppet::LookupContext $context, # the function still needs to accept them.
 ) {
-
   $common = {
     'ssh::package_ensure'     => 'present',
     'ssh::service_enable'     => true,
@@ -30,21 +30,20 @@ function ssh::params (
         'ssh::package_adminfile' => undef,
         'ssh::sshd_config_mode'  => '0600',
         'ssh::service_hasstatus' => true,
-        'ssh::sshd_hostkey'      => [ '/etc/ssh/ssh_host_rsa_key', ],
+        'ssh::sshd_hostkey'      => ['/etc/ssh/ssh_host_rsa_key',],
       }
     }
 
     'Suse': {
-      $os =  {
+      $os = {
         'ssh::package_name'      => 'openssh',
         'ssh::service_name'      => 'sshd',
         'ssh::package_source'    => undef,
         'ssh::package_adminfile' => undef,
         'ssh::sshd_config_mode'  => '0600',
         'ssh::service_hasstatus' => true,
-        'ssh::sshd_hostkey'      => [ '/etc/ssh/ssh_host_rsa_key', ],
+        'ssh::sshd_hostkey'      => ['/etc/ssh/ssh_host_rsa_key',],
       }
-
     }
 
     'Debian': {
@@ -60,7 +59,7 @@ function ssh::params (
         }
       } else {
         $release = {
-          'ssh::sshd_hostkey'                => [ '/etc/ssh/ssh_host_rsa_key', ],
+          'ssh::sshd_hostkey'                => ['/etc/ssh/ssh_host_rsa_key',],
         }
       }
 
@@ -82,7 +81,7 @@ function ssh::params (
       $family = {
         'ssh::sshd_config_mode'        => '0644',
         'ssh::package_adminfile'       => undef,
-        'ssh::sshd_hostkey'            => [ '/etc/ssh/ssh_host_rsa_key', ],
+        'ssh::sshd_hostkey'            => ['/etc/ssh/ssh_host_rsa_key',],
       }
       case $::facts['kernelrelease'] {
         '5.11': {
