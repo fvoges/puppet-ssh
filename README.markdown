@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fvoges/puppet-ssh.svg?branch=master)](https://travis-ci.org/fvoges/puppet-ssh)
+[![Build Status](https://travis-ci.com/fvoges/puppet-ssh.svg?branch=master)](https://travis-ci.com/fvoges/puppet-ssh)
 
 #### Table of Contents
 
@@ -15,11 +15,11 @@
 
 ## Overview
 
-Complementary module to [herculesteam/augeasproviders_ssh](https://forge.puppet.com/herculesteam/augeasproviders_ssh) to manage SSH client and server 
+Complementary module to [puppet/augeasproviders_ssh](https://forge.puppet.com/puppet/augeasproviders_ssh) to manage SSH client and server 
 
 ## Module Description
 
-[herculesteam/augeasproviders_ssh](https://forge.puppet.com/herculesteam/augeasproviders_ssh) is great but it only manages the configuration files.
+[puppet/augeasproviders_ssh](https://forge.puppet.com/puppet/augeasproviders_ssh) is great but it only manages the configuration files.
 
 This module complements it by managing the rest: packages, services and config file permissions.
 
@@ -31,9 +31,6 @@ This module complements it by managing the rest: packages, services and config f
 * This is a great place to stick any warnings.
 * Can be in list or paragraph form. 
 
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, etc.), mention it here. 
 
 ### Beginning with ssh
 
