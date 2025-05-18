@@ -63,22 +63,19 @@
       ]
     },
     {
-      "operatingsystem": "SLED",
-      "operatingsystemrelease": [
-        "12",
-        "15"
-      ]
-    },
-    {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
+        "18.04",
         "20.04",
         "22.04",
         "24.04"
       ]
     },
     {
-      "operatingsystem": "Gentoo"
+      "operatingsystem": "Gentoo",
+      "operatingsystemrelease": [
+        "2.17"
+      ]
     }
   ],
   "requirements": [
