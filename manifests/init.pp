@@ -4,7 +4,7 @@
 #
 # @summary
 #   This module manages the OpenSSH service, but doesn't provide a way to manage the configuration.
-#   Use puppet/augeas_ssh to manage the configuration
+#   Use [puppet/augeasproviders_ssh](https://forge.puppet.com/modules/puppet/augeasproviders_ssh) to manage the configuration
 #
 # @param [Optional[String]                                  ] package_adminfile
 #    `adminfile` parameter for the package resource

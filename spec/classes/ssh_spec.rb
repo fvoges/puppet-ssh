@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pp'
 
 describe 'ssh' do
   context 'supported operating systems' do
@@ -15,7 +16,7 @@ describe 'ssh' do
           it { is_expected.to contain_class('ssh::config') }
           it { is_expected.to contain_class('ssh::service').that_subscribes_to('Class[ssh::config]') }
 
-          case facts[:osfamily]
+          case facts[:os]['family']
           when 'RedHat'
             pkg_names = ['openssh-server', 'openssh-clients']
             svc_name = 'sshd'
@@ -46,6 +47,26 @@ describe 'ssh' do
           end
 
           it { is_expected.to contain_service(svc_name) }
+
+          it {
+            is_expected.to contain_file('ssh_config').with(
+              'ensure' => 'file',
+              'path'   => '/etc/ssh/ssh_config',
+              'owner'  => 'root',
+              'group'  => 'root',
+              'mode'   => '0644',
+            )
+          }
+          it {
+            is_expected.to contain_file('sshd_config').with(
+              'ensure' => 'file',
+              'path'   => '/etc/ssh/sshd_config',
+              'owner'  => 'root',
+              'group'  => 'root',
+              'mode'   => '0600',
+            )
+          }
+
           pkg_names.each do |n|
             it { is_expected.to contain_package(n).with_ensure('present') }
           end

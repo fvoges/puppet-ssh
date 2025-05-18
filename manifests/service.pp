@@ -1,6 +1,6 @@
 # @api private
 #
-# Ensure the necesary services are running.
+# Ensure that the necessary services are running.
 #
 class ssh::service {
   service { $ssh::service_name:
