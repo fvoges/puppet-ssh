@@ -1,6 +1,6 @@
 {
   "name": "fvoges-ssh",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "author": "Federico Voges",
   "summary": "Manages SSH",
   "license": "Apache-2.0",
