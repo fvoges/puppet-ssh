@@ -9,13 +9,13 @@
 #### Public Classes
 
 * [`ssh`](#ssh): This module manages the OpenSSH service, but doesn't provide a way to manage the configuration.
-Use puppet/augeas_ssh to manage the configuration
+Use [puppet/augeasproviders_ssh](https://forge.puppet.com/modules/puppet/augeasproviders_ssh) to manage the configuration
 
 #### Private Classes
 
 * `ssh::config`: Ensure that the minimal config files are present.  This class is called from ssh for service config.
 * `ssh::install`: Ensure that the necessary packages are installed
-* `ssh::service`: Ensure the necesary services are running.
+* `ssh::service`: Ensure that the necessary services are running.
 
 ### Functions
 

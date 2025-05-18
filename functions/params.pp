@@ -18,7 +18,7 @@ function ssh::params (
     'ssh::sshd_config_path'   => '/etc/ssh/sshd_config',
   }
 
-  case $::facts['os']['family'] {
+  case $facts['os']['family'] {
     'RedHat': {
       $os = {
         'ssh::package_name'      => [
@@ -46,9 +46,21 @@ function ssh::params (
       }
     }
 
+    'Gentoo': {
+      $os = {
+        'ssh::package_name'      => 'openssh',
+        'ssh::service_name'      => 'sshd',
+        'ssh::package_source'    => undef,
+        'ssh::package_adminfile' => undef,
+        'ssh::sshd_config_mode'  => '0600',
+        'ssh::service_hasstatus' => true,
+        'ssh::sshd_hostkey'      => ['/etc/ssh/ssh_host_rsa_key',],
+      }
+    }
+
     'Debian': {
       # Ubuntu 16.04
-      if $::facts['os']['release']['full'] == '16.04' {
+      if $facts['os']['release']['full'] == '16.04' {
         $release = {
           'ssh::sshd_hostkey'         => [
             '/etc/ssh/ssh_host_rsa_key',
@@ -83,7 +95,7 @@ function ssh::params (
         'ssh::package_adminfile'       => undef,
         'ssh::sshd_hostkey'            => ['/etc/ssh/ssh_host_rsa_key',],
       }
-      case $::facts['kernelrelease'] {
+      case $facts['kernelrelease'] {
         '5.11': {
           $release = {
             'ssh::package_name'        => [

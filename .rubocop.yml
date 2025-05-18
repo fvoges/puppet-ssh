@@ -3,8 +3,9 @@ require:
 - rubocop-performance
 - rubocop-rspec
 AllCops:
+  NewCops: enable
   DisplayCopNames: true
-  TargetRubyVersion: '3.2'
+  TargetRubyVersion: '2.6'
   Include:
   - "**/*.rb"
   Exclude:
@@ -353,8 +354,6 @@ RSpec/ReceiveCounts:
   Enabled: false
 RSpec/ReceiveNever:
   Enabled: false
-RSpec/RepeatedExample:
-  Enabled: false
 RSpec/RepeatedExampleGroupBody:
   Enabled: false
 RSpec/RepeatedExampleGroupDescription:
@@ -501,14 +500,6 @@ Capybara/SpecificFinders:
   Enabled: false
 Capybara/SpecificMatcher:
   Enabled: false
-Capybara/ClickLinkOrButtonStyle: # new in 2.19
-  Enabled: true
-Capybara/RedundantWithinFind: # new in 2.20
-  Enabled: true
-Capybara/RSpec/HaveSelector: # new in 2.19
-  Enabled: true
-Capybara/RSpec/PredicateMatcher: # new in 2.19
-  Enabled: true
 Gemspec/DeprecatedAttributeAssignment:
   Enabled: false
 Gemspec/DevelopmentDependencies:
@@ -536,6 +527,8 @@ Lint/DeprecatedConstants:
 Lint/DuplicateBranch:
   Enabled: false
 Lint/DuplicateMagicComment:
+  Enabled: false
+Lint/DuplicateMatchPattern:
   Enabled: false
 Lint/DuplicateRegexpCharacterClassElement:
   Enabled: false
@@ -653,6 +646,8 @@ Style/ComparableClamp:
   Enabled: false
 Style/ConcatArrayLiterals:
   Enabled: false
+Style/DataInheritance:
+  Enabled: false
 Style/DirEmpty:
   Enabled: false
 Style/DocumentDynamicEvalDefinition:
@@ -720,6 +715,8 @@ Style/RedundantEach:
 Style/RedundantHeredocDelimiterQuotes:
   Enabled: false
 Style/RedundantInitialize:
+  Enabled: false
+Style/RedundantLineContinuation:
   Enabled: false
 Style/RedundantSelfAssignmentBranch:
   Enabled: false
